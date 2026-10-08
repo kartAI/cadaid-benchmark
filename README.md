@@ -11,6 +11,18 @@ Benchmark for classifying and detecting drawing types on pages of Norwegian buil
 
 1134 page images: 911 train, 116 val, 107 test. 161 images contain none of the classes. Every image has zero or more labelled drawings, each with a class and a bounding box.
 
+## Samples
+
+Boxes are coloured by class: 🟥 `fasade`, 🟦 `plantegning`, 🟩 `situasjonskart`, 🟧 `snitt`. Pages range from a single drawing to several, from one to three classes, and some have none.
+
+| | | |
+|:-:|:-:|:-:|
+| ![fasade](docs/samples/sample_1.png)<br>1 label: fasade | ![plantegning](docs/samples/sample_2.png)<br>1 label: plantegning | ![situasjonskart](docs/samples/sample_3.png)<br>1 label: situasjonskart |
+| ![snitt](docs/samples/sample_4.png)<br>1 label: snitt | ![three classes](docs/samples/sample_5.png)<br>3 labels, 3 classes | ![four elevations](docs/samples/sample_6.png)<br>4 labels: fasade ×4 |
+| ![plans and sections](docs/samples/sample_7.png)<br>6 labels: plantegning ×4, snitt ×2 | ![many floor plans](docs/samples/sample_8.png)<br>8 labels: plantegning ×8 | ![no labels](docs/samples/sample_9.png)<br>0 labels (negative page) |
+
+Regenerate with `uv run tools/make_samples.py`.
+
 ## Quick start
 
 Requires [uv](https://docs.astral.sh/uv/).
@@ -37,6 +49,7 @@ docs/
   how-to-benchmark.md user guide
   dataset.md          how the data was assembled and labeled
 examples/             sample prediction files and a predictor stub
+tools/make_samples.py  renders the annotated sample images in docs/samples/
 tools/viewer.html     label browser (serve the repo root, e.g. python3 -m http.server, open /tools/viewer.html)
 ```
 
